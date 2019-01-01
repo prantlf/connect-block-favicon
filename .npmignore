@@ -1,0 +1,6 @@
+.DS_Store
+.editorconfig
+.gitignore
+.npmignore
+.vscode
+test
