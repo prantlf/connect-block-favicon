@@ -1,7 +1,7 @@
 {
   "name": "connect-block-favicon",
-  "version": "0.0.1",
-  "description": "Middleware for Connect or Express to silence browser requests for /favicon.ico with no content.",
+  "version": "0.0.0-development",
+  "description": "Middleware for Connect or Express to silence browser requests for favicon.ico with no content.",
   "author": {
     "name": "Ferdinand Prantl",
     "email": "prantlf@gmail.com",
@@ -31,7 +31,9 @@
     "fix": "standard --verbose --fix",
     "check": "jest",
     "test": "npm run lint && npm run check",
-    "coverage": "test `node --version | cut -c 2` -eq 8 && cat coverage/lcov.info | coveralls"
+    "coverage": "test `node --version | cut -c 2` -eq 8 && cat coverage/lcov.info | coveralls",
+    "travis-deploy-once": "travis-deploy-once",
+    "semantic-release": "semantic-release"
   },
   "jest": {
     "roots": [
@@ -54,13 +56,16 @@
   "devDependencies": {
     "coveralls": "3.0.2",
     "jest": "23.6.0",
-    "standard": "12.0.1"
+    "standard": "12.0.1",
+    "travis-deploy-once": "^5.0.11",
+    "semantic-release": "^15.13.2"
   },
   "keywords": [
     "connect",
     "express",
     "middleware",
     "favicon",
-    "favicon.ico"
+    "favicon.ico",
+    "block"
   ]
 }

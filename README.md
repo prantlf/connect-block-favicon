@@ -8,7 +8,7 @@
 
 [![NPM Downloads](https://nodei.co/npm/connect-block-favicon.png?downloads=true&stars=true)](https://www.npmjs.com/package/connect-block-favicon)
 
-Middleware for [Connect] or [Express] to silence browser requests for /favicon.ico with no content. Useful for serving web project files from a local web server for development or test automation purposes.
+Middleware for [Connect] or [Express] to silence browser requests for `favicon.ico` with no content. Useful for serving web project files from a local web server for development or test automation purposes.
 
 * No need for storing a `favicon.ico` file in the root of your project.
 * Both [Connect] and [Express] HTTP server frameworks supported.
