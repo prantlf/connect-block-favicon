@@ -1,4 +1,4 @@
-function noFavicon () {
+function blockFavicon () {
   return (request, response, next) => {
     if (request.url === '/favicon.ico') {
       response.writeHead(204, {
@@ -11,4 +11,4 @@ function noFavicon () {
   }
 }
 
-module.exports = noFavicon
+module.exports = blockFavicon
