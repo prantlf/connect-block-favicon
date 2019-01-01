@@ -1,6 +1,6 @@
 /* global jest, describe, beforeAll, it, expect */
 
-const blockFavicon = require('..')()
+const blockFavicon = require('../src/block-favicon')
 
 describe('Calling blockFavicon', () => {
   const request = {}
@@ -17,10 +17,10 @@ describe('Calling blockFavicon', () => {
   describe('if the request URL is "/favicon.ico"', function () {
     beforeAll(function () {
       prepareRequest('/favicon.ico')
-      blockFavicon(request, response, next)
+      blockFavicon()(request, response, next)
     })
 
-    it('the response status will mean "No Content" and ask for caching it', function () {
+    it('the response status will contain nothing and ask for caching it', function () {
       expect(response.writeHead).toHaveBeenCalledWith(204, {
         'cache-control': 'max-age=31536000'
       })
@@ -37,8 +37,8 @@ describe('Calling blockFavicon', () => {
 
   describe('if the request URL is not "/favicon.ico"', function () {
     beforeAll(function () {
-      prepareRequest('/index.html')
-      blockFavicon(request, response, next)
+      prepareRequest('/')
+      blockFavicon()(request, response, next)
     })
 
     it('the response header will not be written', function () {
