@@ -33,7 +33,7 @@
     "fix": "npm run lint -- --fix",
     "check": "jest",
     "test": "npm run lint && npm run check",
-    "cover": "test `node --version | cut -c 2` -eq 8 && cat coverage/lcov.info | pnpx -y codecov"
+    "cover": "npm run test && cat coverage/lcov.info | pnpx -y codecov"
   },
   "jest": {
     "roots": [

@@ -1,9 +1,0 @@
-.DS_Store
-.coveralls.yml
-.editorconfig
-.gitignore
-.npmignore
-.travis.yml
-.vscode
-coverage
-test
