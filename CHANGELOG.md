@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/prantlf/connect-block-favicon/compare/v1.0.4...v1.0.5) (2022-04-09)
+
+
+### Bug Fixes
+
+* Mention polka compatibility in the description ([74a0331](https://github.com/prantlf/connect-block-favicon/commit/74a0331412ee5425b662046935071501d1e87dda))
+
 ## [1.0.4](https://github.com/prantlf/connect-block-favicon/compare/v1.0.3...v1.0.4) (2019-09-23)
 
 ### Bug Fixes
