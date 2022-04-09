@@ -1,6 +1,6 @@
 {
   "name": "connect-block-favicon",
-  "version": "0.0.0-development",
+  "version": "1.0.4",
   "description": "Middleware for Connect or Express to silence browser requests for favicon.ico with no content.",
   "author": {
     "name": "Ferdinand Prantl",
@@ -25,13 +25,15 @@
   "engines": {
     "node": ">=6"
   },
-  "main": "src/block-favicon.js",
+  "files": [
+    "index.js"
+  ],
   "scripts": {
     "lint": "standard --verbose",
-    "fix": "standard --verbose --fix",
+    "fix": "npm run lint -- --fix",
     "check": "jest",
     "test": "npm run lint && npm run check",
-    "coverage": "test `node --version | cut -c 2` -eq 8 && cat coverage/lcov.info | coveralls"
+    "cover": "test `node --version | cut -c 2` -eq 8 && cat coverage/lcov.info | pnpx -y codecov"
   },
   "jest": {
     "roots": [
@@ -39,7 +41,7 @@
     ],
     "collectCoverage": true,
     "collectCoverageFrom": [
-      "src/*.js"
+      "*.js"
     ],
     "coverageDirectory": "coverage",
     "coverageReporters": [
@@ -54,17 +56,36 @@
       }
     }
   },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      [
+        "@semantic-release/github",
+        {
+          "failComment": false
+        }
+      ],
+      "@semantic-release/git"
+    ]
+  },
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
     "connect": "3.7.0",
-    "coveralls": "3.0.6",
-    "express": "4.17.1",
-    "jest": "24.9.0",
+    "coveralls": "3.1.1",
+    "express": "4.17.3",
+    "jest": "27.5.1",
+    "polka": "^0.5.2",
     "request": "2.88.0",
-    "standard": "14.3.1"
+    "standard": "16.0.4"
   },
   "keywords": [
     "connect",
     "express",
+    "polka",
     "middleware",
     "favicon",
     "favicon.ico",
