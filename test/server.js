@@ -1,21 +1,19 @@
 /* global describe, beforeAll, afterAll, it, expect */
 
 const request = require('request')
-const blockFavicon = require('../src/block-favicon')
+const blockFavicon = require('..')
 
-const port = 8967
-
-function testServer (createServer) {
+function testServer (createServer, port) {
   let server
   let response
 
-  function serveText (request, response, next) {
-    response.writeHead(200, {
+  function serveText (req, res, next) {
+    res.writeHead(200, {
       'content-type': 'text/plain',
       'content-length': 6
     })
-    response.write('Hello!')
-    response.end()
+    res.write('Hello!')
+    res.end()
   }
 
   function startServer () {
@@ -23,19 +21,20 @@ function testServer (createServer) {
       server = createServer()
         .use(blockFavicon())
         .use(serveText)
-        .on('error', error => {
-          server.close()
-          reject(error)
-        })
         .listen(port, resolve)
+      if (server.server) server = server.server
+      server.on('error', err => {
+        server.close()
+        reject(err)
+      })
     })
   }
 
   function stopServer () {
     return new Promise((resolve, reject) => {
-      server.close(error => {
-        if (error) {
-          reject(error)
+      server.close(err => {
+        if (err) {
+          reject(err)
         } else {
           resolve()
         }

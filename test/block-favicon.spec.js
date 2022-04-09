@@ -1,33 +1,33 @@
 /* global jest, describe, beforeAll, it, expect */
 
-const blockFavicon = require('../src/block-favicon')
+const blockFavicon = require('..')
 
 describe('Calling blockFavicon', () => {
-  const request = {}
-  const response = {}
+  const req = {}
+  const res = {}
   let next
 
   function prepareRequest (url) {
-    request.url = url
-    response.writeHead = jest.fn()
-    response.end = jest.fn()
+    req.url = url
+    res.writeHead = jest.fn()
+    res.end = jest.fn()
     next = jest.fn()
   }
 
   describe('if the request URL is "/favicon.ico"', function () {
     beforeAll(function () {
       prepareRequest('/favicon.ico')
-      blockFavicon()(request, response, next)
+      blockFavicon()(req, res, next)
     })
 
     it('the response status will contain nothing and ask for caching it', function () {
-      expect(response.writeHead).toHaveBeenCalledWith(204, {
+      expect(res.writeHead).toHaveBeenCalledWith(204, {
         'cache-control': 'max-age=31536000'
       })
     })
 
     it('the response will end', function () {
-      expect(response.end).toHaveBeenCalled()
+      expect(res.end).toHaveBeenCalled()
     })
 
     it('the next handler will not be called', function () {
@@ -38,15 +38,15 @@ describe('Calling blockFavicon', () => {
   describe('if the request URL is not "/favicon.ico"', function () {
     beforeAll(function () {
       prepareRequest('/')
-      blockFavicon()(request, response, next)
+      blockFavicon()(req, res, next)
     })
 
     it('the response header will not be written', function () {
-      expect(response.writeHead).not.toHaveBeenCalled()
+      expect(res.writeHead).not.toHaveBeenCalled()
     })
 
     it('the response will not end', function () {
-      expect(response.end).not.toHaveBeenCalled()
+      expect(res.end).not.toHaveBeenCalled()
     })
 
     it('the next handler will be called', function () {
