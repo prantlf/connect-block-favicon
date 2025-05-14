@@ -1,3 +1,9 @@
+## [1.1.0](https://github.com/prantlf/connect-block-favicon/compare/v1.0.5...v1.1.0) (2025-05-14)
+
+### Features
+
+* Upgrade dependencies ([3c4ea54](https://github.com/prantlf/connect-block-favicon/commit/3c4ea54811dc8e4769536f1c033ad955262979dc))
+
 ## [1.0.5](https://github.com/prantlf/connect-block-favicon/compare/v1.0.4...v1.0.5) (2022-04-09)
 
 

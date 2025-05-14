@@ -1,6 +1,6 @@
 {
   "name": "connect-block-favicon",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "Middleware for Connect or Express to silence browser requests for favicon.ico with no content.",
   "author": {
     "name": "Ferdinand Prantl",
