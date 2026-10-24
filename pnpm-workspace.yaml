@@ -1,0 +1,7 @@
+allowBuilds:
+  '@parcel/watcher': true
+  unrs-resolver: true
+minimumReleaseAgeExclude:
+  - '@babel/helper-string-parser'
+  - '@babel/parser'
+  - '@babel/types'

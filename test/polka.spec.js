@@ -1,6 +1,6 @@
 /* global describe */
 
-const polka = require('polka')
-const testServer = require('./server')
+import polka from 'polka'
+import testServer from './server.js'
 
 describe('Using blockFavicon with Polka', () => testServer(polka, 8969))

@@ -1,6 +1,6 @@
 /* global describe */
 
-const connect = require('connect')
-const testServer = require('./server')
+import connect from 'connect'
+import testServer from './server.js'
 
 describe('Using blockFavicon with Connect', () => testServer(connect, 8967))

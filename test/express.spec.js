@@ -1,6 +1,6 @@
 /* global describe */
 
-const express = require('express')
-const testServer = require('./server')
+import express from 'express'
+import testServer from './server.js'
 
 describe('Using blockFavicon with Express', () => testServer(express, 8968))

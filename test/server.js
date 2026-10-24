@@ -1,13 +1,13 @@
 /* global describe, beforeAll, afterAll, it, expect */
 
-const request = require('request')
-const blockFavicon = require('..')
+import request from 'request'
+import blockFavicon from '../index.js'
 
-function testServer (createServer, port) {
+export default function testServer(createServer, port) {
   let server
   let response
 
-  function serveText (req, res, next) {
+  function serveText(req, res, _next) {
     res.writeHead(200, {
       'content-type': 'text/plain',
       'content-length': 6
@@ -16,12 +16,9 @@ function testServer (createServer, port) {
     res.end()
   }
 
-  function startServer () {
+  function startServer() {
     return new Promise((resolve, reject) => {
-      server = createServer()
-        .use(blockFavicon())
-        .use(serveText)
-        .listen(port, resolve)
+      server = createServer().use(blockFavicon()).use(serveText).listen(port, resolve)
       if (server.server) server = server.server
       server.on('error', err => {
         server.close()
@@ -30,7 +27,7 @@ function testServer (createServer, port) {
     })
   }
 
-  function stopServer () {
+  function stopServer() {
     return new Promise((resolve, reject) => {
       server.close(err => {
         if (err) {
@@ -42,7 +39,7 @@ function testServer (createServer, port) {
     })
   }
 
-  function makeRequest (path) {
+  function makeRequest(path) {
     return new Promise((resolve, reject) => {
       request
         .get(`http://localhost:${port}${path}`)
@@ -78,5 +75,3 @@ function testServer (createServer, port) {
     })
   })
 }
-
-module.exports = testServer

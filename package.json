@@ -2,42 +2,61 @@
   "name": "connect-block-favicon",
   "version": "1.1.0",
   "description": "Middleware for Connect or Express to silence browser requests for favicon.ico with no content.",
+  "keywords": [
+    "block",
+    "connect",
+    "express",
+    "favicon",
+    "favicon.ico",
+    "middleware",
+    "polka"
+  ],
+  "homepage": "https://github.com/prantlf/connect-block-favicon#readme",
+  "bugs": {
+    "url": "https://github.com/prantlf/connect-block-favicon/issues"
+  },
+  "license": "MIT",
   "author": {
     "name": "Ferdinand Prantl",
     "email": "prantlf@gmail.com",
     "url": "http://prantl.tk"
   },
-  "license": "MIT",
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/prantlf/connect-block-favicon/blob/master/LICENSE"
-    }
-  ],
-  "homepage": "https://github.com/prantlf/connect-block-favicon#readme",
   "repository": {
     "type": "git",
     "url": "https://github.com/prantlf/connect-block-favicon.git"
   },
-  "bugs": {
-    "url": "https://github.com/prantlf/connect-block-favicon/issues"
-  },
-  "engines": {
-    "node": ">=6"
-  },
   "files": [
-    "index.js"
+    "index.js",
+    "index.cjs"
   ],
+  "type": "module",
+  "main": "index.cjs",
+  "module": "index.js",
+  "exports": {
+    ".": {
+      "require": "./index.cjs",
+      "import": "./index.js"
+    }
+  },
   "scripts": {
-    "lint": "standard --verbose",
+    "build": "rollup -c",
+    "lint": "oxlint",
     "fix": "npm run lint -- --fix",
-    "check": "jest",
+    "format": "oxfmt",
+    "check": "NODE_OPTIONS=--experimental-vm-modules jest",
     "test": "npm run lint && npm run check"
   },
+  "devDependencies": {
+    "connect": "3.7.0",
+    "express": "5.3.0",
+    "jest": "30.5.2",
+    "oxfmt": "0.74.0",
+    "oxlint": "1.89.0",
+    "polka": "0.5.2",
+    "request": "2.88.2",
+    "rollup": "4.65.0"
+  },
   "jest": {
-    "roots": [
-      "test"
-    ],
     "collectCoverage": true,
     "collectCoverageFrom": [
       "*.js"
@@ -53,24 +72,18 @@
         "functions": 100,
         "lines": 100
       }
+    },
+    "roots": [
+      "test"
+    ]
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/prantlf/connect-block-favicon/blob/master/LICENSE"
     }
-  },
-  "devDependencies": {
-    "connect": "3.7.0",
-    "coveralls": "3.1.1",
-    "express": "5.1.0",
-    "jest": "29.7.0",
-    "polka": "^0.5.2",
-    "request": "2.88.2",
-    "standard": "17.1.2"
-  },
-  "keywords": [
-    "connect",
-    "express",
-    "polka",
-    "middleware",
-    "favicon",
-    "favicon.ico",
-    "block"
   ]
 }

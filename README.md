@@ -1,15 +1,15 @@
 # connect-block-favicon
 
 [![Latest version](https://img.shields.io/npm/v/connect-block-favicon)
- ![Dependency status](https://img.shields.io/librariesio/release/npm/connect-block-favicon)
+![Dependency status](https://img.shields.io/librariesio/release/npm/connect-block-favicon)
 ](https://www.npmjs.com/package/connect-block-favicon)
 [![Test coverage](https://codecov.io/gh/prantlf/connect-block-favicon/branch/master/graph/badge.svg)](https://codecov.io/gh/prantlf/connect-block-favicon)
 
 Middleware for [Connect], [Express] or [Polka] to silence browser requests for `favicon.ico` with no content. Useful when serving web project files from a local web server for development or test automation purposes.
 
-* No need for storing a `favicon.ico` file in the root of your project.
-* Any server supporting [middleware] supported.
-* No other dependencies.
+- No need for storing a `favicon.ico` file in the root of your project.
+- Any server supporting [middleware] supported.
+- No other dependencies.
 
 If you develop or test a web application and your console is polluted by the following message, when the browser tries accessing `/favicon.ico`, using this middleware will help you to get rid of it:
 
@@ -66,7 +66,7 @@ The request handler intercepts requests to `/favicon.ico` and "satisfies" them b
 
 ## Contributing
 
-In lieu of a formal styleguide, take care to maintain the existing coding style.  Add unit tests for any new or changed functionality. Lint and test your code.
+In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code.
 
 ## License
 

@@ -1,6 +1,10 @@
 {
   "files.exclude": {
     "coverage": true,
-    "node_modules": true
+    "node_modules": true,
+    "index.cjs.map": true
+  },
+  "search.exclude": {
+    "index.cjs": true
   }
 }

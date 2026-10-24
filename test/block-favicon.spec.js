@@ -1,13 +1,14 @@
-/* global jest, describe, beforeAll, it, expect */
+/* global describe, beforeAll, it, expect */
 
-const blockFavicon = require('..')
+import { jest } from '@jest/globals'
+import blockFavicon from '../index.js'
 
 describe('Calling blockFavicon', () => {
   const req = {}
   const res = {}
   let next
 
-  function prepareRequest (url) {
+  function prepareRequest(url) {
     req.url = url
     res.writeHead = jest.fn()
     res.end = jest.fn()
