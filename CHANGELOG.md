@@ -1,3 +1,15 @@
+## [2.0.0](https://github.com/prantlf/connect-block-favicon/compare/v1.1.0...v2.0.0) (2026-10-24)
+
+### Chores
+
+* Upgrade, convert to ESM ([f9c68b7](https://github.com/prantlf/connect-block-favicon/commit/f9c68b7200037a5099e23e66afe0112166d2621c))
+
+### BREAKING CHANGES
+
+Exports are now divided to ESM and CJS. This remains
+from the previous version and thus it shouldn't break anything.
+Nevertheless, it needs to be tested.
+
 ## [1.1.0](https://github.com/prantlf/connect-block-favicon/compare/v1.0.5...v1.1.0) (2025-05-14)
 
 ### Features
